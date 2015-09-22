@@ -1,29 +1,9 @@
-<!--  Copyright 2015 Upload Multiple Images Ajax  (email : manudg_1@msn.com)
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
-    published by the Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
--->
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="UTF-8" />
 <link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'/>
 <script src='http://code.jquery.com/jquery.js'></script>
 <script src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 <!-- jQuery Plugin - upload multiple images ajax -->
 <script src='js/uploadImages.js'></script>
-</head>
-<body>
 	<div class="container" style="padding-top: 50px;">
 		<h3>Upload Multiple Images Ajax - <small>(PHP + jQuery + Bootstrap) <a href="index.php">*|__demostration__|*</a></small></h3>
 		<blockquote>
@@ -116,5 +96,3 @@
 		<br />
 		<br />
 	</div>
-</body>
-</html>
