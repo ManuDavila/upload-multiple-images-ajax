@@ -1,4 +1,3 @@
-# upload-multiple-images-ajax
 <!--  Copyright 2015 Upload Multiple Images Ajax  (email : manudg_1@msn.com)
 
     This program is free software; you can redistribute it and/or modify
