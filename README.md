@@ -1,5 +1,5 @@
 <div class="container" style="padding-top: 50px;">
-		<h3>Upload Multiple Images Ajax - <small>(PHP + jQuery + Bootstrap) <a href="index.php">*|__demostration__|*</a></small></h3>
+		<h3>Upload Multiple Images Ajax - <small>(PHP + jQuery + Bootstrap)</small></h3>
 		<blockquote>
 		This plugin has been developed with jQuery and PHP and allows you to easily upload images to the server via AJAX technology, validate the images on the server and client sides and display a preview of the images. You can remove an image from the preview if you do not like or send additional arguments to the server. The plugin supports bootstrap CSS styles.
 		</blockquote>
