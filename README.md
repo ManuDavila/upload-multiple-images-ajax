@@ -1,19 +1,8 @@
-
-<link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'/>
-<script src='http://code.jquery.com/jquery.js'></script>
-<script src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-<!-- jQuery Plugin - upload multiple images ajax -->
-<script src='js/uploadImages.js'></script>
-	<div class="container" style="padding-top: 50px;">
+<div class="container" style="padding-top: 50px;">
 		<h3>Upload Multiple Images Ajax - <small>(PHP + jQuery + Bootstrap) <a href="index.php">*|__demostration__|*</a></small></h3>
 		<blockquote>
 		This plugin has been developed with jQuery and PHP and allows you to easily upload images to the server via AJAX technology, validate the images on the server and client sides and display a preview of the images. You can remove an image from the preview if you do not like or send additional arguments to the server. The plugin supports bootstrap CSS styles.
 		</blockquote>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-		<input type="hidden" name="cmd" value="_s-xclick" />
-		<input type="hidden" name="hosted_button_id" value="3MU32JJKR2YW6" />
-		<button type="submit" class="btn btn-primary">DONATE <span class="glyphicon glyphicon-thumbs-up"></span></button>
-		</form>
 		<hr />
 		<h1><div class="label label-success">jQuery Plugins</label></h1>
 		<hr />
