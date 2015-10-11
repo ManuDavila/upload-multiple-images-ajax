@@ -79,7 +79,6 @@ $.fn.uploadImagesPreview = function(form, options, callback){
 							__errors_upload__ = '';
 							random_class = Math.floor((Math.random() * 10000000000000000000) + 1);
 							eval("__items__upload__"+element+"[random_class] = $(_file)[0].files.item(x)");
-							setup_reader($(_file)[0].files, x, random_class);
 							function setup_reader(files, i, random_class) {
 									var file = files[i];
 									var reader = new FileReader();
@@ -95,6 +94,7 @@ $.fn.uploadImagesPreview = function(form, options, callback){
 													};
 									reader.readAsDataURL(file);
 								}
+							setup_reader($(_file)[0].files, x, random_class);
 						}
 						else
 						{
