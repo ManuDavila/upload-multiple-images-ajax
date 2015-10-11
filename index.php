@@ -81,7 +81,7 @@ $("#btn").on("click", function(){
 		<hr />
 		<form method="post" id="form" class="form-inline" enctype="multipart/form-data">
 				<div class="form-group">
-					<input type="file" class="btn btn-primary" />
+					<input type="file" multiple class="btn btn-primary" />
 				</div>
 				<div class="form-group">
 				<label for="project_name">Project Name:</label>

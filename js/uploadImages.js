@@ -45,18 +45,18 @@ $.fn.uploadImagesPreview = function(form, options, callback){
 	element = element.replace(new RegExp(":", "g"), "");
 	if (eval("__items__upload__"+element) === undefined)
 	{
-		eval("var __items__upload__"+element+" = new Array()");
+		eval("__items__upload__"+element+" = new Array()");
 	}
 	
 	var _file = $(form).find("input[type='file']").selector;
 	for (x = 0; x < $(_file)[0].files.length; x++)
 		{
-				
 			content_type = options.image_type.split("|");
 			
 			c_t = $(_file)[0].files[x]["type"];
 			c_t = c_t.split("/");
 			size = $(_file)[0].files[x]["size"];
+			
 			if (content_type.indexOf(c_t[1]) != -1)
 			{	
 				__errors__upload__  = '';
@@ -68,7 +68,7 @@ $.fn.uploadImagesPreview = function(form, options, callback){
 					{
 						__errors__upload__  = '';
 						
-						eval("len___items__upload__"+element+" = 0");
+						eval("len___items__upload__"+element+"=0");
 						for (i in eval("__items__upload__"+element))
 						{
 							eval("len___items__upload__"+element+"++");
@@ -79,18 +79,22 @@ $.fn.uploadImagesPreview = function(form, options, callback){
 							__errors_upload__ = '';
 							random_class = Math.floor((Math.random() * 10000000000000000000) + 1);
 							eval("__items__upload__"+element+"[random_class] = $(_file)[0].files.item(x)");
-							var reader = new FileReader();
-							reader.onload = function (e) {
-									$(self).prepend("<div class='progress'><div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100' style='width: 100%'></div></div><table style='display: none;' class='table table-condensed' image-upload-item='"+random_class+"'><tr><td><img src='"+e.target.result+"' class='img-responsive' /></td><td><button type='button' class='btn btn-danger' image-upload-item='"+random_class+"' ><span class='glyphicon glyphicon-remove'></span></button></td></tr></table>");
-									$(self).find("[image-upload-item='" + random_class + "']").fadeIn(1000, function(){$(".progress").fadeOut(1000, function(){$(this).remove();});});
-									$("#count-images").html($(self).countImages());
-								$(self).find("button").on("click", function(){
-										$(self).find("[image-upload-item='" + $(this).attr("image-upload-item") + "']").fadeOut(1000, function(){$(this).remove();});
-										eval("delete __items__upload__"+element+"[$(this).attr('image-upload-item')]");
+							setup_reader($(_file)[0].files, x, random_class);
+							function setup_reader(files, i, random_class) {
+									var file = files[i];
+									var reader = new FileReader();
+									reader.onload = function(e){
+										$(self).prepend("<div class='progress'><div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100' style='width: 100%'></div></div><table style='display: none;' class='table table-condensed' image-upload-item='"+random_class+"'><tr><td><img src='"+e.target.result+"' class='img-responsive' /></td><td><button type='button' class='btn btn-danger' image-upload-item='"+random_class+"' ><span class='glyphicon glyphicon-remove'></span></button></td></tr></table>");
+										$(self).find("[image-upload-item='" + random_class + "']").fadeIn(1000, function(){$(".progress").fadeOut(1000, function(){$(this).remove();});});
 										$("#count-images").html($(self).countImages());
-									});
-							}
-							reader.readAsDataURL($(_file)[0].files[x]);						
+										$(self).find("button").on("click", function(){
+												$(self).find("[image-upload-item='" + $(this).attr("image-upload-item") + "']").fadeOut(1000, function(){$(this).remove();});
+												eval("delete __items__upload__"+element+"[$(this).attr('image-upload-item')]");
+												$("#count-images").html($(self).countImages());
+											});	
+													};
+									reader.readAsDataURL(file);
+								}
 						}
 						else
 						{
@@ -111,7 +115,8 @@ $.fn.uploadImagesPreview = function(form, options, callback){
 			{
 				__errors__upload__ = 'ERROR_CONTENT_TYPE';
 			}
-		}			
+		}
+	
 	callback();
 	return eval("__items__upload__"+element);
 };
