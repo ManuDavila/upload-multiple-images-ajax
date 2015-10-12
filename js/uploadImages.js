@@ -150,6 +150,16 @@ $.fn.countImages = function(){
 	return x;
 };
 
+$.fileReader = function(){
+	try {
+		var reader = new FileReader();
+		return true;
+	}
+	catch(e) {
+		return false;
+	}
+};
+
 $.fn.uploadImagesAjax = function(_url, options){
 	var defaults = {
 		params: {},

@@ -40,6 +40,9 @@
 		<h1>$(element).countImages()</h1>
 		<blockquote>Return the number of images.</blockquote>
 		<hr>
+		<h1>$.fileReader()</h1>
+		<blockquote>Boolean. Check if File Api is compatible in the web browser.</blockquote>
+		<hr />
 		<h1>$(element).uploadImagesAjax(url [required], options [optional])</h1>
 		<blockquote>Upload the images and send parameters for an asynchronous HTTP (Ajax) request.</blockquote>
 		<hr />
@@ -59,13 +62,13 @@
 		</ul>
 		<h3>Events:</h3>
 		<ul>
-			<li><strong>$(document).on("createImage", function(e){console.log(e.file.name;); ...});</strong> - It happens when an image is created, the "e" argument gets information from the file. (e.file.name|e.file.size|e.file.type)</li>
-			<li><strong>$(document).on("deleteImage", function(e){console.log(e.file.name;); ...});</strong> - It happens when an image is deleted, the "e" argument gets information from the file. (e.file.name|e.file.size|e.file.type)</li>
+			<li><strong>$(document).on("createImage", function(e){console.log(e.file.name); ...});</strong> - It happens when an image is created, the "e" argument gets information from the file. (e.file.name|e.file.size|e.file.type)</li>
+			<li><strong>$(document).on("deleteImage", function(e){console.log(e.file.name); ...});</strong> - It happens when an image is deleted, the "e" argument gets information from the file. (e.file.name|e.file.size|e.file.type)</li>
 		</ul>
 		<hr />
 		<h1><div class="label label-success">PHP Class</label></h1>
 		<h1>uploadImages() <small>class</small></h1>
-		<blockquote>Validate, get the parameters and save the images.</blockquote>
+		<blockquote>Validate images, get the parameters and save the images.</blockquote>
 		<hr />
 		<h3>Publics properties and defaults values:</h3>
 		<pre>

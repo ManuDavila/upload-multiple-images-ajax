@@ -23,7 +23,15 @@
 <!-- jQuery Plugin - upload multiple images ajax -->
 <script src='js/uploadImages.js'></script>
 <script>
-$(function(){	
+$(function(){
+
+/* Check File API compatibility */	
+if (!$.fileReader()){
+	alert("File API is not supported on your browser");
+}
+else{
+	console.log("File API is supported on your browser");
+}
 
 /* createImage Event */
 $(document).on("createImage", function(e){
@@ -80,7 +88,8 @@ $("#btn").on("click", function(){
 			params: {project_name: $("#project_name").val()}, /* Set the extra parameters here */
 			beforeSend: function(){console.log("Sending ...");},
 			success: function(data){$("#upload-preview").html(data); $("#form").fadeOut();},
-			error: function(e){console.log(e.status);console.log(e.statusText);}
+			error: function(e){console.log(e.status);console.log(e.statusText);},
+			complete: function(){console.log("Completed");}
 		});
 	}
 	else{ // The button is not activated
