@@ -85,15 +85,21 @@ $.fn.uploadImagesPreview = function(form, options, callback){
 									reader.onload = function(e){
 										$(self).prepend("<div class='progress'><div class='progress-bar progress-bar-striped active' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100' style='width: 100%'></div></div><table style='display: none;' class='table table-condensed' image-upload-item='"+random_class+"'><tr><td><img src='"+e.target.result+"' class='img-responsive' /></td><td style='text-align:right;'><button type='button' class='btn btn-danger' image-upload-item='"+random_class+"' ><span class='glyphicon glyphicon-remove'></span></button></td></tr></table>");
 										$(self).find("[image-upload-item='" + random_class + "']").fadeIn(1000, function(){$(".progress").fadeOut(1000, function(){$(this).remove();});});
-										$("#count-images").html($(self).countImages());
+										$(form + " .count-images").html($(self).countImages());
+										$.event.trigger({type: "createImage", file: eval("__items__upload__"+element+"[random_class]")});
 										$(self).find("button").on("click", function(){
 												$(self).find("[image-upload-item='" + $(this).attr("image-upload-item") + "']").fadeOut(1000, function(){$(this).remove();});
+												image = eval("__items__upload__"+element+"[$(this).attr('image-upload-item')]");
 												eval("delete __items__upload__"+element+"[$(this).attr('image-upload-item')]");
-												$("#count-images").html($(self).countImages());
+												$(form + " .count-images").html($(self).countImages());
+												try{
+												$.event.trigger({type: "deleteImage", file: image});
+												} catch(e){}
 											});	
-													};
+										};
 									reader.readAsDataURL(file);
 								}
+								
 							setup_reader($(_file)[0].files, x, random_class);
 						}
 						else

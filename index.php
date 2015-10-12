@@ -23,7 +23,32 @@
 <!-- jQuery Plugin - upload multiple images ajax -->
 <script src='js/uploadImages.js'></script>
 <script>
-$(function(){
+$(function(){	
+
+/* createImage Event */
+$(document).on("createImage", function(e){
+	console.log(e.file.name);
+	console.log(e.file.size);
+	console.log(e.file.type);
+});
+
+/* deleteImage Event */
+$(document).on("deleteImage", function(e){
+	console.log(e.file.name);
+	console.log(e.file.size);
+	console.log(e.file.type);
+	/* if not there are images, the button is disabled */
+	if ($("#upload-preview").countImages() == 0)
+	{
+		$("#btn").attr("disabled", "disabled");
+	}
+});
+	
+/* Prevent form submit */
+$("#form").on("submit", function(e){
+	e.preventDefault();
+});
+	
 /* Preview and Validate */
 $("#form input[type='file']").on("change", function(){
 	
@@ -58,6 +83,9 @@ $("#btn").on("click", function(){
 			error: function(e){console.log(e.status);console.log(e.statusText);}
 		});
 	}
+	else{ // The button is not activated
+		$(this).attr("disabled", "disabled");
+	}
 });
 });
 </script>
@@ -91,7 +119,7 @@ $("#btn").on("click", function(){
 					<button type="button" id="btn" class="btn btn-primary" disabled><span class="glyphicon glyphicon-save"></span></button>
 				</div>
 				<div class="form-group">
-					Images: <span class="badge" id="count-images">0</span>
+					Images: <span class="badge count-images">0</span>
 				</div>
 		</form>
 		<hr />

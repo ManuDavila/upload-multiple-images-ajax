@@ -88,6 +88,11 @@
 			</pre>
 			</li>
 		</ul>
+		<h3>Events:</h3>
+		<ul>
+			<li><strong>$(document).on("createImage", function(e){console.log(e.file.name;); ...});</strong> - It happens when an image is created, the "e" argument gets information from the file. (e.file.name|e.file.size|e.file.type)</li>
+			<li><strong>$(document).on("deleteImage", function(e){console.log(e.file.name;); ...});</strong> - It happens when an image is deleted, the "e" argument gets information from the file. (e.file.name|e.file.size|e.file.type)</li>
+		</ul>
 		<hr />
 		<h1><div class="label label-success">PHP Class</label></h1>
 		<h1>uploadImages() <small>class</small></h1>
